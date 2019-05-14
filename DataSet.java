@@ -13,7 +13,6 @@ import javax.swing.*;
   -mostly static methods which operate on the data set
  */
 public class DataSet {
-
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // method that creates a list of dataPoints
   public static List<DataPoint> readDataSet(String file) throws FileNotFoundException {
@@ -146,7 +145,7 @@ public class DataSet {
   public static List<DataPoint> getTestSet(List<DataPoint> fullDataSet, double fractionTestSet) {
 
     // Random rnd = new Random(123);
-    // Collections.shuffle(fullDataSet, rnd);
+     //Collections.shuffle(fullDataSet, rnd);
     Collections.shuffle(fullDataSet);
 
     List<DataPoint> testSet = new ArrayList<DataPoint>();
@@ -165,8 +164,7 @@ public class DataSet {
   ///////////////////////////////////////////////////////////////////////////////////
   // "split off" trainingSet by setting testOrTrain variable for each dataPoint based on fraction
   // input by user
-  public static List<DataPoint> getTrainingSet(
-      List<DataPoint> fullDataSet, double fractionTrainingSet) {
+  public static List<DataPoint> getTrainingSet(List<DataPoint> fullDataSet, double fractionTrainingSet) {
 
     // Random rnd = new Random(123);
     // Collections.shuffle(fullDataSet);
@@ -246,5 +244,24 @@ public class DataSet {
     }
   }
   ////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////
+  // TASK 4: make a method here called distanceEuclid 
+  // TASK 4: write a new method in DataSet.java which takes as arguments to DataPoint objects,
+  // and returns the Euclidean distance between those two points (as a double)
+     
+	 
+	 //distance = Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 
+ public static double distanceEuclid(DataPoint x,DataPoint y)
+  {
+	double X[]=x.getX();
+	double Y[]=y.getX();
+	double distance= 0;
+	for(int i=0; (i<X.length); i++)
+	{
+		distance+= Math.pow((X[i]-Y[i]),2.0);
+	}
+	return Math.sqrt(distance);
+  }
+  ////////////////////////////////////////////////////////////////////////////
 }
